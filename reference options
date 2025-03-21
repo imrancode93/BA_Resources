@@ -1,0 +1,18 @@
+Common reference_options include:
+
+CASCADE: Apply the same operation to the child row(s).
+ON DELETE CASCADE: If a parent row is deleted, any matching child rows are also deleted.
+ON UPDATE CASCADE: If the parent’s key value changes, the child’s foreign key value is updated to match.
+
+SET NULL: Set the foreign key column(s) in the child table to NULL.
+ON DELETE SET NULL: If the parent row is deleted, the child row’s foreign key is set to NULL.
+ON UPDATE SET NULL: If the parent’s key value changes, the child’s foreign key column is set to NULL.
+
+RESTRICT (or NO ACTION): Prevent the operation if there are any matching child rows.
+ON DELETE RESTRICT: If a parent row has child rows, deleting that parent will fail.
+ON UPDATE RESTRICT: If a parent row has child rows, updating the parent’s key will fail.
+
+So, to break it down simply:
+
+ON DELETE ... – What should happen in the child table when the parent row is deleted?
+ON UPDATE ... – What should happen in the child table when the parent row is updated (specifically, if the referenced key column changes)?
